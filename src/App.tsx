@@ -1,11 +1,15 @@
-import "./styles/theme.css";
-import "./styles/global.css";
+import { Heading } from "./components/Heading";
+
+import './styles/theme.css';
+import './styles/global.css';
 
 export function App() {
   return (
     <>
-      <h1>Title</h1>
 
+      <Heading>
+        Title
+      </Heading>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ab
         blanditiis officiis recusandae quis aliquam quasi deserunt magnam ipsum
