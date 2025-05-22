@@ -1,25 +1,15 @@
-import { Heading } from "./components/Heading";
-
 import './styles/theme.css';
 import './styles/global.css';
-import { Timer } from "lucide-react";
+
+import { Heading } from './components/Heading';
+import { Container } from './components/Container';
 
 export function App() {
   return (
     <>
-      <Heading>
-        Title
-
-        <button>
-            <Timer />
-        </button>
-      </Heading>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ab
-        blanditiis officiis recusandae quis aliquam quasi deserunt magnam ipsum
-        provident sapiente sequi soluta esse veniam, numquam quaerat sunt illum
-        doloribus?
-      </p>
+    <Container>
+        <Heading>LOGO</Heading>
+    </Container>
     </>
-  );
+);
 }
