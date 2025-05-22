@@ -2,6 +2,7 @@ import { Heading } from "./components/Heading";
 
 import './styles/theme.css';
 import './styles/global.css';
+import { Timer } from "lucide-react";
 
 export function App() {
   return (
@@ -9,7 +10,9 @@ export function App() {
       <Heading>
         Title
 
-        <button>P</button>
+        <button>
+            <Timer />
+        </button>
       </Heading>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ab
