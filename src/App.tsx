@@ -10,6 +10,14 @@ export function App() {
     <Container>
         <Heading>LOGO</Heading>
     </Container>
+
+    <Container>
+        <Heading>LOGO</Heading>
+    </Container>
+    
+    <Container>
+        <Heading>LOGO</Heading>
+    </Container>
     </>
 );
 }
