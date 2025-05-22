@@ -6,9 +6,10 @@ import './styles/global.css';
 export function App() {
   return (
     <>
-
       <Heading>
         Title
+
+        <button>P</button>
       </Heading>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ab
