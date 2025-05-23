@@ -1,5 +1,9 @@
+import { TimerIcon } from 'lucide-react';
 import styles from './styles.module.css';
 
 export function Logo(){
-    return <div className={styles.logo}>Logo</div>;
+    return <div className={styles.logo}>
+        <a href="#" className={styles.logoLink}><TimerIcon />
+        <span>Kaíros</span></a>
+    </div>;
 }
