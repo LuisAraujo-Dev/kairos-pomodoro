@@ -5,6 +5,7 @@ import { Container } from './components/Container';
 import { Heading } from './components/Heading/Index';
 import { Logo } from './components/Logo';
 import { Menu } from './components/Menu';
+import { CountDown } from './components/CountDown';
 
 export function App() {
   return (
@@ -15,6 +16,14 @@ export function App() {
 
     <Container>
         <Menu />
+    </Container>
+
+    <Container>
+        <CountDown />
+    </Container>
+
+    <Container>
+        <Heading>Título</Heading>
     </Container>
     </>
 );
