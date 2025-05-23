@@ -1,52 +1,52 @@
-import './styles/theme.css';
-import './styles/global.css';
+import "./styles/theme.css";
+import "./styles/global.css";
 
-import { Container } from './components/Container';
-import { Heading } from './components/Heading/Index';
-import { Logo } from './components/Logo';
-import { Menu } from './components/Menu';
-import { CountDown } from './components/CountDown';
+import { Container } from "./components/Container";
+import { Heading } from "./components/Heading/Index";
+import { Logo } from "./components/Logo";
+import { Menu } from "./components/Menu";
+import { CountDown } from "./components/CountDown";
+import { DeufaltInput } from "./components/DefaultInput";
 
 export function App() {
   return (
     <>
-    <Container>
+      <Container>
         <Logo />
-    </Container>
+      </Container>
 
-    <Container>
+      <Container>
         <Menu />
-    </Container>
+      </Container>
 
-    <Container>
+      <Container>
         <CountDown />
-    </Container>
+      </Container>
 
-    <Container>
+      <Container>
         <form className="formName" action="">
-            <div className="formRow">
-            <label htmlFor="input">task</label>
-            <input id="input" type="text" />
-            </div>
+          <div className="formRow">
+            <DeufaltInput labelText="task" id="formName" type="text" />
+          </div>
 
-            <div className="formRow">
+          <div className="formRow">
             <p>Lorem ipsum dolor sit amet.</p>
-            </div>
+          </div>
 
-            <div className="formRow">
+          <div className="formRow">
             <p>ciclos</p>
             <p>0 0 0 0 0 </p>
-            </div>
+          </div>
 
-            <div className="formRow">
+          <div className="formRow">
             <button>Enviar</button>
-            </div>
+          </div>
         </form>
-    </Container>
+      </Container>
 
-    <Container>
+      <Container>
         <Heading>Título</Heading>
-    </Container>
+      </Container>
     </>
-);
+  );
 }
