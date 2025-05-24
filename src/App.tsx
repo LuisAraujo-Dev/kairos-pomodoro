@@ -8,6 +8,7 @@ import { Menu } from "./components/Menu";
 import { CountDown } from "./components/CountDown";
 import { DeufaltInput } from "./components/DefaultInput";
 import { Cycles } from "./components/Cycles";
+import { Button } from "./components/Button";
 
 export function App() {
   return (
@@ -43,7 +44,7 @@ export function App() {
           </div>
 
           <div className="formRow">
-            <button>Enviar</button>
+            <Button />
           </div>
         </form>
       </Container>
