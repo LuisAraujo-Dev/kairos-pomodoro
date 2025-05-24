@@ -1,4 +1,4 @@
-import { CirclePlayIcon, PlayIcon } from "lucide-react";
+import { CirclePlayIcon } from "lucide-react";
 import styles from "./styles.module.css";
 
 export function Button() {
