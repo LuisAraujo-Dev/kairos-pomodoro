@@ -1,4 +1,4 @@
-.button {
+.defaultButton {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -12,12 +12,12 @@
     transition: all .2s ;
 }
 
-.button svg {
+.defaultButton svg {
     color: var(--gray-900);
     width: 3rem;
     height: 3rem;
 }
 
-.button:hover {
+.defaultButton:hover {
     filter: brightness(80%);
 }

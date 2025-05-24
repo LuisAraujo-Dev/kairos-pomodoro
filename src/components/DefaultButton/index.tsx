@@ -1,8 +1,8 @@
 import { CirclePlayIcon } from "lucide-react";
 import styles from "./styles.module.css";
 
-export function Button() {
-  return <div className={styles.button}>
+export function DefaultButton() {
+  return <div className={styles.defaultButton}>
        <CirclePlayIcon/>
     </div>;
 }
