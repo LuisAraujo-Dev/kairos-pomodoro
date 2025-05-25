@@ -9,7 +9,7 @@ import { CountDown } from "./components/CountDown";
 import { DeufaltInput } from "./components/DefaultInput";
 import { Cycles } from "./components/Cycles";
 import { DefaultButton } from "./components/DefaultButton";
-import { PlayCircle, PlayCircleIcon } from "lucide-react";
+import { PlayCircleIcon } from "lucide-react";
 
 export function App() {
   return (
