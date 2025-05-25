@@ -17,6 +17,7 @@
 
 .input:focus{
     border-radius: 0.8rem;
+    outline: none;
     border: 0.2rem solid var(--primary);
 }
 
