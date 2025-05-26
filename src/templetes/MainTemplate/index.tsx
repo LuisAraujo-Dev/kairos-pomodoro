@@ -12,19 +12,19 @@ type MainTemplatesPros = {
 export function MainTemplate({ children }: MainTemplatesPros) {
   return (
     <>
-      <Container>
-        <Logo />
-      </Container>
-
-      <Container>
-        <Menu />
-      </Container>
-
-      {children}
-
-      <Container>
-        <Footer />
-      </Container>
-    </>
+          <Container>
+            <Logo />
+          </Container>
+    
+          <Container>
+            <Menu />
+          </Container>
+    
+          { children }
+    
+          <Container>
+            <Footer />
+          </Container>
+        </>
   );
 }
