@@ -19,17 +19,19 @@ type TaskContextProps = {
   setState: React.Dispatch<React.SetStateAction<TaskStateModels>>;
 };
 
-export const taskContext = createContext<TaskContextProps>({
+const initialContextValue = {
   state: initialState,
   setState: () => {},
-});
+};
+
+export const TaskContext = createContext<TaskContextProps>(initialContextValue);
 
 type TaskContextProviderProps = {
     children: React.ReactNode; 
 }
 
 export function TaskContextProvider({children}: TaskContextProviderProps) {
-    return <TaskContextProvider value={}>
+    return <TaskContext.Provider value={initialContextValue}>
         {children}
-    </TaskContextProvider>
+    </TaskContext.Provider>
 }
