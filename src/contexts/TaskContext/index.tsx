@@ -27,3 +27,9 @@ export const taskContext = createContext<TaskContextProps>({
 type TaskContextProviderProps = {
     children: React.ReactNode; 
 }
+
+export function TaskContextProvider({children}: TaskContextProviderProps) {
+    return <TaskContextProvider value={}>
+        {children}
+    </TaskContextProvider>
+}
