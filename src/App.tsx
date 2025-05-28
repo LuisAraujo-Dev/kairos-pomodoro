@@ -4,6 +4,7 @@ import type { TaskStateModels } from "./models/TaskStateModels";
 import "./styles/theme.css";
 import "./styles/global.css";
 import { useState } from 'react'
+import { TaskContextProvider } from "./contexts/TaskContext";
 
 const initialState: TaskStateModels = {
   tasks: [],
@@ -19,9 +20,12 @@ const initialState: TaskStateModels = {
   };
 
 export function App() {
-  const [state, setState] = useState(initialState);
+  // eslint-disable-next-line no-empty-pattern
+  const [ ] = useState(initialState);
 
   return (
-    <Home state={state} setState={setState}/>
+    <TaskContextProvider>
+    <Home />
+    </TaskContextProvider>
   );
 }
