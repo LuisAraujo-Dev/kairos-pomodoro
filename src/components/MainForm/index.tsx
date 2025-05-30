@@ -4,9 +4,9 @@ import { DeufaltInput } from "../DefaultInput";
 import { Cycles } from "../Cycles";
 
 export function MainForm() {
-  function handleCreateNewTask() {
-    console.log("deu cerrto");
-  }
+  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  } 
 
   return (
     <form onSubmit={handleCreateNewTask} className="form" action="">
