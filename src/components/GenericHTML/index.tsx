@@ -1,9 +1,9 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 type GenericHTMLProps = {
-    children: React.ReactNode; 
-}
+  children: React.ReactNode;
+};
 
-export function GenericHTML({children}: GenericHTMLProps) {
-    return <div className={styles.genericHtml}>{children}</div>
+export function GenericHTML({ children }: GenericHTMLProps) {
+  return <div className={styles.genericHtml}>{children}</div>;
 }

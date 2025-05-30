@@ -1,4 +1,3 @@
-
 import type { TaskStateModels } from "../../models/TaskStateModels";
 
 export const initialTaskState: TaskStateModels = {
@@ -13,4 +12,3 @@ export const initialTaskState: TaskStateModels = {
     longBreakTime: 15,
   },
 };
-
