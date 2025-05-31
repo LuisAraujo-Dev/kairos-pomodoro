@@ -2,11 +2,50 @@ import { PlayCircleIcon } from "lucide-react";
 import { DefaultButton } from "../DefaultButton";
 import { DeufaltInput } from "../DefaultInput";
 import { Cycles } from "../Cycles";
+import { useRef } from "react";
+import type { TaskModels } from "../../models/TaskModels";
+import { useTaskContext } from "../../contexts/TaskContext/UseTaskContext";
 
 export function MainForm() {
+  const { setState } = useTaskContext();
+  const TaskNameImput = useRef<HTMLInputElement>(null);
+
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-  } 
+
+    if (TaskNameImput.current === null) return;
+
+    const TaskName = TaskNameImput.current.value.trim();
+
+    if (!TaskName) {
+      alert("Digite o nome da tarefa");
+      return;
+    }
+
+    const newTask: TaskModels = {
+      id: Date.now().toString(),
+      name: TaskName,
+      startDate: Date.now(),
+      completeDate: null,
+      interruptDate: null,
+      duration: 1,
+      type: "workTime",
+    };
+
+    const secondsRemainig = newTask.duration * 60;
+
+    setState((prevState) => {
+      return {
+        ...prevState,
+        config: { ...prevState.config },
+        activeTask: newTask,
+        currentCycle: 1,
+        secondsRemainig,
+        formattedSecondsRemaining: "00:00",
+        tasks: [...prevState.tasks, newTask],
+      };
+    });
+  }
 
   return (
     <form onSubmit={handleCreateNewTask} className="form" action="">
@@ -16,6 +55,7 @@ export function MainForm() {
           id="meuImput"
           type="text"
           placeholder="Digite algo"
+          ref={TaskNameImput}
         />
       </div>
 
