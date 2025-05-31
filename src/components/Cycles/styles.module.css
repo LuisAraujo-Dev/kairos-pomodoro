@@ -19,11 +19,11 @@
   background-color: var(--primary);
 }
 
-.WorkTime {
+.workTime {
   background: var(--warning);
 }
 
-.shortBrakTime {
+.shortBreakTime {
   background: var(--primary);
 }
 

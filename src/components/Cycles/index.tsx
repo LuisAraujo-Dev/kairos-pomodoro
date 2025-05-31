@@ -1,26 +1,35 @@
 import styles from "./styles.module.css";
 import { useTaskContext } from "../../contexts/TaskContext/UseTaskContext";
+import { getNextCycle } from "../../utils/getNextCycle";
+import { getNextCycleType } from "../../utils/getNextCycleType";
 
 export function Cycles() {
-  const {state} = useTaskContext(); 
+  const { state } = useTaskContext();
 
-  const cycleStep = Array.from({ length: state.currentCycle})
+  const cycleStep = Array.from({ length: state.currentCycle });
 
-  console.log(cycleStep); 
+  const cycleDescriptionMap = {
+    workTime: 'foco', 
+    shortBreakTime: 'descanso curto', 
+    longBreakTime: 'descanso longo'
+  }
 
   return (
     <div className={styles.cycles}>
       <span>Ciclos</span>
 
       <div className={styles.cyclesDots}>
-        <span className={`${styles.cyclesDot} ${styles.WorkTime}`}></span>
-        <span className={`${styles.cyclesDot} ${styles.shortBreakTime}`}></span>
-        <span className={`${styles.cyclesDot} ${styles.WorkTime}`}></span>
-        <span className={`${styles.cyclesDot} ${styles.shortBreakTime}`}></span>
-        <span className={`${styles.cyclesDot} ${styles.WorkTime}`}></span>
-        <span className={`${styles.cyclesDot} ${styles.shortBreakTime}`}></span>
-        <span className={`${styles.cyclesDot} ${styles.WorkTime}`}></span>
-        <span className={`${styles.cyclesDot} ${styles.longBreakTime}`}></span>
+        {cycleStep.map((_, index) => {
+          const nextCycle = getNextCycle(index);
+          const nextCycleType = getNextCycleType(nextCycle);
+          return (
+            <span
+              className={`${styles.cyclesDot} ${styles[nextCycleType]}`}
+              title={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+              aria-label={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+            ></span>
+          );
+        })}
       </div>
     </div>
   );
