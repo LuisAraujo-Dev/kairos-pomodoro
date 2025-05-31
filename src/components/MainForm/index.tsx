@@ -5,9 +5,10 @@ import { Cycles } from "../Cycles";
 import { useRef } from "react";
 import type { TaskModels } from "../../models/TaskModels";
 import { useTaskContext } from "../../contexts/TaskContext/UseTaskContext";
+import { getNextCycle } from "../../utils/getNextCycle";
 
 export function MainForm() {
-  const { setState } = useTaskContext();
+  const { state, setState } = useTaskContext();
   const TaskNameImput = useRef<HTMLInputElement>(null);
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
@@ -21,6 +22,9 @@ export function MainForm() {
       alert("Digite o nome da tarefa");
       return;
     }
+
+    //ciclos
+    const nextCycle = getNextCycle(state.currentCycle);
 
     const newTask: TaskModels = {
       id: Date.now().toString(),
@@ -39,7 +43,7 @@ export function MainForm() {
         ...prevState,
         config: { ...prevState.config },
         activeTask: newTask,
-        currentCycle: 1,
+        currentCycle: nextCycle,
         secondsRemainig,
         formattedSecondsRemaining: "00:00",
         tasks: [...prevState.tasks, newTask],
