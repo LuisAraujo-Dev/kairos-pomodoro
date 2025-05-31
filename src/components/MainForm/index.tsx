@@ -7,6 +7,7 @@ import type { TaskModels } from "../../models/TaskModels";
 import { useTaskContext } from "../../contexts/TaskContext/UseTaskContext";
 import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
+import { formateSecondToMinutes } from "../../utils/formateSecondToMinutes";
 
 export function MainForm() {
   const { state, setState } = useTaskContext();
@@ -47,7 +48,7 @@ export function MainForm() {
         activeTask: newTask,
         currentCycle: nextCycle,
         secondsRemainig,
-        formattedSecondsRemaining: "00:00",
+        formattedSecondsRemaining: formateSecondToMinutes(secondsRemainig),
         tasks: [...prevState.tasks, newTask],
       };
     });
