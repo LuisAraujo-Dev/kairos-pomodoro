@@ -9,10 +9,10 @@ export function Cycles() {
   const cycleStep = Array.from({ length: state.currentCycle });
 
   const cycleDescriptionMap = {
-    workTime: 'foco', 
-    shortBreakTime: 'descanso curto', 
-    longBreakTime: 'descanso longo'
-  }
+    workTime: "foco",
+    shortBreakTime: "descanso curto",
+    longBreakTime: "descanso longo",
+  };
 
   return (
     <div className={styles.cycles}>
@@ -24,6 +24,7 @@ export function Cycles() {
           const nextCycleType = getNextCycleType(nextCycle);
           return (
             <span
+              key={nextCycle}
               className={`${styles.cyclesDot} ${styles[nextCycleType]}`}
               title={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
               aria-label={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
