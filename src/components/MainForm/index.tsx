@@ -63,6 +63,7 @@ export function MainForm() {
           type="text"
           placeholder="Digite algo"
           ref={TaskNameImput}
+          disabled={!!state.activeTask}
         />
       </div>
 
@@ -70,10 +71,10 @@ export function MainForm() {
         <p>Próximo intervalo é de 25min</p>
       </div>
 
-      {state.currentCycle > 0 &&(
-      <div className="formRow">
-        <Cycles />
-      </div>
+      {state.currentCycle > 0 && (
+        <div className="formRow">
+          <Cycles />
+        </div>
       )}
 
       <div className="formRow">
