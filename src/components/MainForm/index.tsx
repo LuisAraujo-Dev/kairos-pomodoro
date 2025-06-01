@@ -54,7 +54,10 @@ export function MainForm() {
     });
   }
 
-  function handleInterruptedTask() {
+  function handleInterruptedTask(
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
+    e.preventDefault();
     setState((prevState) => {
       return {
         ...prevState,
