@@ -95,17 +95,21 @@ export function MainForm() {
           <DefaultButton
             aria-label="Iniciar nova Tarefa"
             title="Iniciar nova Tarefa"
+            type="submit"
             icon={<PlayCircleIcon />}
             color="green"
+            key={"button_submit"}
           />
         )}
         {!!state.activeTask && (
           <DefaultButton
             aria-label="Interromper nova Tarefa"
             title="Interromper nova Tarefa"
+            type="button"
             icon={<StopCircleIcon />}
             color="red"
             onClick={handleInterruptedTask}
+            key={"button_buttom"}
           />
         )}
       </div>
