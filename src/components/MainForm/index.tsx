@@ -1,13 +1,13 @@
-import { PlayCircleIcon, StopCircleIcon } from "lucide-react";
-import { DefaultButton } from "../DefaultButton";
-import { DeufaltInput } from "../DefaultInput";
-import { Cycles } from "../Cycles";
 import { useRef } from "react";
 import type { TaskModels } from "../../models/TaskModels";
 import { useTaskContext } from "../../contexts/TaskContext/UseTaskContext";
 import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { formateSecondToMinutes } from "../../utils/formateSecondToMinutes";
+import { PlayCircleIcon, StopCircleIcon } from "lucide-react";
+import { DefaultButton } from "../DefaultButton";
+import { Cycles } from "../Cycles";
+import { DeufaltInput } from "../DefaultInput";
 
 export function MainForm() {
   const { state, setState } = useTaskContext();
@@ -64,9 +64,16 @@ export function MainForm() {
         activeTask: null,
         secondsRemainig: 0,
         formattedSecondsRemaining: "00:00",
+        tasks: prevState.tasks.map((task) => {
+          if (prevState.activeTask && prevState.activeTask.id === task.id){
+            return {...task, interruptDate: Date.now()}
+          }
+          return task;
+        }),
       };
     });
   }
+
   return (
     <form onSubmit={handleCreateNewTask} className="form" action="">
       <div className="formRow">
