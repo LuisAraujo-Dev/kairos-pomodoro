@@ -5,7 +5,12 @@ export enum TaskActionTypes {
   INTERRUPT_TASK = "INTERRUPT_TASK",
 }
 
-export type TaskActionModels = {
-  type: TaskActionTypes.START_TASK;
-  payload: TaskModels;
-};
+export type TaskActionModels =
+  | {
+      type: TaskActionTypes.START_TASK;
+      payload: TaskModels;
+    }
+  | {
+      type: TaskActionTypes.INTERRUPT_TASK;
+      payload: TaskModels;
+    };
