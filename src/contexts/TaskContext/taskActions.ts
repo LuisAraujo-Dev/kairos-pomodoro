@@ -1,16 +1,25 @@
-import type { TaskModels } from "../../models/TaskModels";
+import { type TaskModels } from "../../models/TaskModels";
 
 export enum TaskActionTypes {
-  START_TASK = "START_TASK",
-  INTERRUPT_TASK = "INTERRUPT_TASK",
+  START_TASK = 'START_TASK',
+  INTERRUPT_TASK = 'INTERRUPT_TASK',
+  RESET_STATE = 'RESET_STATE',
 }
 
-export type TaskActionModels =
+
+export type TaskActionsWithPayload = {
+  type: TaskActionTypes.START_TASK;
+  payload: TaskModels;
+};
+
+export type TaskActionsWithoutPayload =
   | {
-      type: TaskActionTypes.START_TASK;
-      payload: TaskModels;
+      type: TaskActionTypes.RESET_STATE;
     }
   | {
       type: TaskActionTypes.INTERRUPT_TASK;
-      payload: TaskModels;
     };
+
+export type TaskActionModels =
+  | TaskActionsWithPayload
+  | TaskActionsWithoutPayload;
