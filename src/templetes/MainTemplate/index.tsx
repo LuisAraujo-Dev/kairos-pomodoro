@@ -1,13 +1,13 @@
-import { Container } from "../../components/Container";
-import { Logo } from "../../components/Logo";
-import { Menu } from "../../components/Menu";
-import { Footer } from "../../components/Footer/Index";
+import { Container } from '../../components/Container';
+import { Footer } from '../../components/Footer/Index';
+import { Logo } from '../../components/Logo';
+import { Menu } from '../../components/Menu';
 
-type MainTemplatesPros = {
+type MainTemplateProps = {
   children: React.ReactNode;
 };
 
-export function MainTemplate({ children }: MainTemplatesPros) {
+export function MainTemplate({ children }: MainTemplateProps) {
   return (
     <>
       <Container>

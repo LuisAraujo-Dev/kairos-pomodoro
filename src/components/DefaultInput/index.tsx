@@ -1,11 +1,11 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
 type DefaultInputProps = {
   id: string;
   labelText: string;
-} & React.ComponentProps<"input">;
+} & React.ComponentProps<'input'>;
 
-export function DeufaltInput({
+export function DefaultInput({
   id,
   type,
   labelText,
