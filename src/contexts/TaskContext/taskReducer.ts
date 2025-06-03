@@ -35,7 +35,7 @@ export function taskReducer(
           return task;
         }),
       };
-
+    }
       case TaskActionTypes.COMPLETE_TASK: {
       return {
         ...state,
@@ -49,7 +49,6 @@ export function taskReducer(
           return task;
         }),
       };
-    }
     }
     case TaskActionTypes.RESET_STATE: {
       return state;
