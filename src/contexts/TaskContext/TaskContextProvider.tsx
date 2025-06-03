@@ -19,7 +19,9 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     console.log(countDownSeconds);
 
     if (countDownSeconds <= 0) {
-      console.log('Worker COMPLETED');
+      dispatch({
+        type: TaskActionTypes.COMPLETE_TASK,
+      });
       worker.terminate();
     } else {
       dispatch({
