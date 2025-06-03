@@ -8,10 +8,15 @@ export enum TaskActionTypes {
   COMPLETE_TASK = 'COMPLETE_TASK',
 }
 
-export type TaskActionsWithPayload = {
-  type: TaskActionTypes.START_TASK;
-  payload: TaskModel;
-};
+export type TaskActionsWithPayload =
+  | {
+      type: TaskActionTypes.START_TASK;
+      payload: TaskModel;
+    }
+  | {
+      type: TaskActionTypes.COUNT_DOWN;
+      payload: { secondsRemaiming: number };
+    };
 
 export type TaskActionsWithoutPayload =
   | {
@@ -19,6 +24,9 @@ export type TaskActionsWithoutPayload =
     }
   | {
       type: TaskActionTypes.INTERRUPT_TASK;
+    }
+  | {
+      type: TaskActionTypes.COMPLETE_TASK;
     };
 
 export type TaskActionModel =
