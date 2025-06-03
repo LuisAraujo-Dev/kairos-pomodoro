@@ -14,4 +14,17 @@ export class TimeWorkerManeger {
 
         return instance; 
     }
+
+    postMessage(message: any) {
+        this.worker.postMessage(message);
+    }
+
+    onmessage(cb: (e: MessageEvent) => void) {
+        this.worker.onmessage = cb;
+    }
+
+    terminate() {
+        this.worker.terminate();
+        instance = null;
+    }
 }

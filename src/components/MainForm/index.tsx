@@ -9,6 +9,7 @@ import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { TaskActionTypes } from "../../contexts/TaskContext/taskActions";
 import { Tips } from "../../Tips";
+import { TimeWorkerManeger } from "../../workers/TimeWorkerMenager";
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -42,6 +43,12 @@ export function MainForm() {
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
   }
+
+  const worker = TimeWorkerManeger.getIntance();
+
+  worker.onmessage((e) => {
+    console.log('ola', e.data)
+  })
 
   function handleInterruptedTask() {
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
