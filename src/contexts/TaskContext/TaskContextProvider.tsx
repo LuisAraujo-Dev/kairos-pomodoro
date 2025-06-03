@@ -10,6 +10,9 @@ type TaskContextProviderProps = {
 export function TaskContextProvider({ children }: TaskContextProviderProps) {
   const [state, dispatch] = useReducer(taskReducer, initialTaskState);
 
+  const worker = TimegetInstance(
+  )
+
   useEffect(() => {
     console.log(state);
   }, [state]);
