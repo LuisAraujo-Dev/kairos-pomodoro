@@ -2,7 +2,7 @@ import "./styles/theme.css";
 import "./styles/global.css";
 import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider";
 import { Home } from "./pages/Home";
-import { ToastContainer } from "react-toastify/unstyled";
+import { Bounce, ToastContainer } from "react-toastify/unstyled";
 
 
 export function App() {

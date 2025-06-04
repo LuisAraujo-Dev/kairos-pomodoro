@@ -9,6 +9,7 @@ import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { Tips } from '../Tips';
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext';
 import type { TaskModel } from '../../models/TaskModel';
+import { toast } from 'react-toastify';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -26,7 +27,7 @@ export function MainForm() {
     const taskName = taskNameInput.current.value.trim();
 
     if (!taskName) {
-      alert('Digite o nome da tarefa');
+      toast.success('Digite o nome da tarefa');
       return;
     }
 
