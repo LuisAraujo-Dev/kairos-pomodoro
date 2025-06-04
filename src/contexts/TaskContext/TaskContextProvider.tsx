@@ -18,9 +18,12 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
   worker.onmessage(e => {
     const countDownSeconds = e.data;
-    console.log(countDownSeconds);
 
     if (countDownSeconds <= 0) {
+      if (playBeepRef.current) {
+        playBeepRef.current();
+        playBeepRef.current = null;
+      }
       dispatch({
         type: TaskActionTypes.COMPLETE_TASK,
       });
@@ -35,12 +38,19 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
   useEffect(() => {
     if (!state.activeTask) {
-      console.log('Worker terminado por falta de activeTask');
       worker.terminate();
     }
 
     worker.postMessage(state);
   }, [worker, state]);
+
+  useEffect(() => {
+    if (state.activeTask && playBeepRef.current === null) {
+      playBeepRef.current = loadBeep();
+    } else {
+      playBeepRef.current = null;
+    }
+  }, [state.activeTask]);
 
   return (
     <TaskContext.Provider value={{ state, dispatch }}>

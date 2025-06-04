@@ -1,4 +1,4 @@
-import { TaskStateModel } from "../models/TaskStateModel";
+import { TaskStateModel } from '../models/TaskStateModel';
 
 let instance: TimerWorkerManager | null = null;
 
@@ -6,7 +6,7 @@ export class TimerWorkerManager {
   private worker: Worker;
 
   private constructor() {
-    this.worker = new Worker(new URL("./timerWorker.js", import.meta.url));
+    this.worker = new Worker(new URL('./timerWorker.js', import.meta.url));
   }
 
   static getInstance() {
@@ -21,7 +21,7 @@ export class TimerWorkerManager {
     this.worker.postMessage(message);
   }
 
-  onmessage(cb: (event: MessageEvent) => void) {
+  onmessage(cb: (e: MessageEvent) => void) {
     this.worker.onmessage = cb;
   }
 
