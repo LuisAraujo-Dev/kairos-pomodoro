@@ -42,7 +42,7 @@ export function Menu() {
     <nav className={styles.menu}>
       <a
         className={styles.menuLink}
-        href='#'
+        href='/'
         aria-label='Ir para a Home'
         title='Ir para a Home'
       >
