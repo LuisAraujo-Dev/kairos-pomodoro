@@ -1,9 +1,12 @@
+import { Home } from './pages/Home';
+
 import './styles/theme.css';
 import './styles/global.css';
 import { TaskContextProvider } from './contexts/TaskContext/TaskContextProvider';
-import { Home } from './pages/Home';
 import { MessageContainer } from './components/MessagesContainer';
 import { BrowserRouter, Route, Routes } from 'react-router';
+import { NotFound } from './pages/NotFould';
+import { AboutPomodoro } from './pages/AboutPomodoro';
 
 export function App() {
   return (
@@ -11,8 +14,10 @@ export function App() {
       <MessageContainer>
         <BrowserRouter>
           <Routes>
-            <Route/>
-            <Home />
+            <Route path='/' element={<Home />} />
+            <Route path='/about-pomodoro/' element={<AboutPomodoro />} />
+
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </MessageContainer>
