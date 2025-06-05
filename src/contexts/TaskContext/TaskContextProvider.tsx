@@ -31,7 +31,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     } else {
       dispatch({
         type: TaskActionTypes.COUNT_DOWN,
-        payload: { secondsRemaiming: countDownSeconds },
+        payload: { secondsRemaining: countDownSeconds },
       });
     }
   });
