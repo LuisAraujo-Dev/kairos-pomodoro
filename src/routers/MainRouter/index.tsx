@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router';
 import { AboutPomodoro } from '../../pages/AboutPomodoro';
+import { NotFound } from '../../pages/NotFound';
 import { Home } from '../../pages/Home';
 import { useEffect } from 'react';
-import { NotFound } from '../../pages/NotFould';
 import { History } from '../../pages/History';
 
 function ScrollToTop() {

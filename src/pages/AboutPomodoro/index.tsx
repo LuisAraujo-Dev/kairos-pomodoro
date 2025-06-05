@@ -1,8 +1,8 @@
 import { Container } from '../../components/Container';
 import { GenericHtml } from '../../components/GenericHtml';
-import { Heading } from '../../components/Heading/Index';
+import { Heading } from '../../components/Heading';
 import { RouterLink } from '../../components/RouterLink';
-import { MainTemplate } from '../../templetes/MainTemplate';
+import { MainTemplate } from '../../templates/MainTemplate';
 
 export function AboutPomodoro() {
   return (
