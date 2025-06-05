@@ -5,8 +5,11 @@ import { Container } from '../../components/Container';
 import { DefaultButton } from '../../components/DefaultButton';
 import { Heading } from '../../components/Heading/Index';
 import { MainTemplate } from '../../templetes/MainTemplate';
+import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext';
 
 export function History() {
+  const {state} = useTaskContext(); 
+
   return (
     <MainTemplate>
       <Container>
@@ -36,17 +39,17 @@ export function History() {
               </tr>
             </thead>
             <tbody>
-               {Array.from({length: 20}).map((_, index) => {
+               {state.tasks.map((tasks => {
                 return (
-                  <tr key={index}>
-                <td>Estudar</td>
-                <td>25min</td>
-                <td>05/06/2025</td>
-                <td>Completa</td>
-                <td>Foto</td>
+                  <tr key={tasks.id}>
+                <td>{tasks.name}</td>
+                <td>{tasks.duration}min</td>
+                <td>{new Date(tasks.startDate).toISOString()}</td>
+                <td>{tasks.interruptDate}</td>
+                <td>{tasks.type}</td>
               </tr>
                 )
-              })}
+              }))}
             </tbody>
           </table>
         </div>
