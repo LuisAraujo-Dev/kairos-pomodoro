@@ -1,11 +1,11 @@
 import React from 'react';
 import { Bounce, ToastContainer } from 'react-toastify';
 
-type MessageContainerProps = {
+type MessagesContainerProps = {
   children: React.ReactNode;
 };
 
-export function MessageContainer({ children }: MessageContainerProps) {
+export function MessagesContainer({ children }: MessagesContainerProps) {
   return (
     <>
       {children}
