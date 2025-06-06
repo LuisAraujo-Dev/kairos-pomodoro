@@ -6,7 +6,6 @@ export type SortTaskOptions = {
   field?: keyof TaskModel;
 };
 
-// function chamada sortTask
 export function sortTask({
   field = 'startDate',
   direction = 'desc',
@@ -33,3 +32,4 @@ export function sortTask({
     return 0;
   });
 }
+

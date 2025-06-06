@@ -8,11 +8,19 @@ import styles from './styles.module.css';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
-import { sortTask } from '../../utils/sortTasks';
+import { sortTask, SortTaskOptions } from '../../utils/sortTasks';
+import { useState } from 'react';
 
 export function History() {
   const { state } = useTaskContext();
-  const sortedTaks = sortTask({ tasks: state.tasks });
+  const [ sortTaskOptions, setSortTaskOptions] = useState<SortTaskOptions>( 
+    () => {
+      return {
+        field: 'startDate',
+        direction: 'desc', 
+        tasks: sortTask({tasks: state.tasks})
+      }
+    })
 
   return (
     <MainTemplate>
@@ -44,7 +52,7 @@ export function History() {
             </thead>
 
             <tbody>
-              {sortedTaks.map(task => {
+              {sortTaskOptions.tasks.map(task => {
                 const taskTypeDictionary = {
                   workTime: 'Foco',
                   shortBreakTime: 'Descanso curto',
