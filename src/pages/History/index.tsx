@@ -13,14 +13,29 @@ import { useState } from 'react';
 
 export function History() {
   const { state } = useTaskContext();
-  const [ sortTaskOptions, setSortTaskOptions] = useState<SortTaskOptions>( 
+  const [sortTaskOptions, setSortTaskOptions] = useState<SortTaskOptions>(
     () => {
       return {
         field: 'startDate',
-        direction: 'desc', 
-        tasks: sortTask({tasks: state.tasks})
-      }
-    })
+        direction: 'desc',
+        tasks: sortTask({ tasks: state.tasks }),
+      };
+    },
+  );
+
+  function handleSortTask({ field }: Pick<SortTaskOptions, 'field'>) {
+    const newDirection = sortTaskOptions.direction === 'desc' ? 'asc' : 'desc';
+
+    setSortTaskOptions({
+      tasks: sortTask({
+        direction: newDirection,
+        tasks: sortTaskOptions.tasks,
+        field,
+      }),
+      direction: newDirection,
+      field,
+    });
+  }
 
   return (
     <MainTemplate>
@@ -43,9 +58,15 @@ export function History() {
           <table>
             <thead>
               <tr>
-                <th>Tarefa</th>
-                <th>Duração</th>
-                <th>Data</th>
+                <th onClick={() => handleSortTask({ field: 'name' })}>
+                  Tarefa
+                </th>
+                <th onClick={() => handleSortTask({ field: 'duration' })}>
+                  Duração
+                </th>
+                <th onClick={() => handleSortTask({ field: 'startDate' })}>
+                  Data
+                </th>
                 <th>Status</th>
                 <th>Tipo</th>
               </tr>
