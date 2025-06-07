@@ -149,7 +149,7 @@ export function History() {
         )}
         {!hasTasks && (
           <p style={{ textAlign: 'center', fontWeight: 'bold' }}>
-            Ainda não existem taredas iniciadas
+            Ainda não existem tarefas iniciadas
           </p>
         )}
       </Container>
