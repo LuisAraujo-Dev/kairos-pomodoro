@@ -4,11 +4,23 @@ import { DefaultButton } from '../../components/DefaultButton';
 import { DefaultInput } from '../../components/DefaultInput';
 import { Heading } from '../../components/Heading';
 import { MainTemplate } from '../../templates/MainTemplate';
+import { useRef } from 'react';
+import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 
 export function Settings() {
- function handleSaveSettings(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault(); 
- } 
+const {state } = useTaskContext()
+
+  const workTimeInput = useRef<HTMLInputElement>(null);
+  const shortBreakTimeInput = useRef<HTMLInputElement>(null);
+  const longBreakTimeInput = useRef<HTMLInputElement>(null);
+
+  function handleSaveSettings(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const workTime = workTimeInput.current?.value; 
+    const shortBreakTime = shortBreakTimeInput.current?.value; 
+    const longBreakTime = longBreakTimeInput.current?.value; 
+  }
 
   return (
     <MainTemplate>
@@ -23,18 +35,33 @@ export function Settings() {
       </Container>
 
       <Container>
-        <form onSubmit={handleSaveSettings} action="" className='form'>
+        <form onSubmit={handleSaveSettings} action='' className='form'>
           <div className='formRow'>
-            <DefaultInput id='workTiime' labelText='Foco'/>
+            <DefaultInput id='workTime' labelText='Foco' ref={workTimeInput} />
           </div>
           <div className='formRow'>
-            <DefaultInput id='shortBreakTime' labelText='Descanso Curto'/>
+            <DefaultInput
+              id='shortBreakTime'
+              labelText='Descanso Curto'
+              ref={shortBreakTimeInput}
+              defaultValue={state.config.workTime}
+            />
           </div>
           <div className='formRow'>
-            <DefaultInput id='longBreakTime' labelText='Descanso Longo'/>
+            <DefaultInput
+              id='longBreakTime'
+              labelText='Descanso Longo'
+              ref={longBreakTimeInput}
+              defaultValue={state.config.shortBreakTime}
+            />
           </div>
           <div className='formRow'>
-            <DefaultButton icon={<SaveIcon/>} aria-label='Salvar configurações' title='Salvar configurações'/>
+            <DefaultButton
+              icon={<SaveIcon />}
+              aria-label='Salvar configurações'
+              title='Salvar configurações'
+              defaultValue={state.config.longBreakTime}
+            />
           </div>
         </form>
       </Container>
