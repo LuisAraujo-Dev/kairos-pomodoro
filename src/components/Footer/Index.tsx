@@ -8,7 +8,7 @@ export function Footer() {
         Entenda como funciona a técnica pomodoro
       </RouterLink>
       <RouterLink href='/'>
-        Chronos Pomodoro &copy; {new Date().getFullYear()} - Feito com 💚
+        Kaíros Pomodoro &copy; {new Date().getFullYear()} - Feito com 💚
       </RouterLink>
     </footer>
   );

@@ -6,9 +6,9 @@ import { RouterLink } from '../../components/RouterLink';
 import { MainTemplate } from '../../templates/MainTemplate';
 
 export function NotFound() {
-useEffect(() => {
-  document.title = 'Página não encontrada - Chronos Pomodoro'
-})
+  useEffect(() => {
+    document.title = 'Página não encontrada - Kaíros Pomodoro';
+  });
 
   return (
     <MainTemplate>

@@ -57,7 +57,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
       worker.terminate();
     }
 
-    document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
+    document.title = `${state.formattedSecondsRemaining} - Kaíros Pomodoro`;
 
     worker.postMessage(state);
   }, [worker, state]);

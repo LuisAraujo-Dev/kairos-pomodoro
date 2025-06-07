@@ -16,7 +16,7 @@ import { showMessage } from '../../adapters/showMessage';
 export function History() {
   const { state, dispatch } = useTaskContext();
   const hasTasks = state.tasks.length > 0;
- const [confirmClearHistory, setConfirmClearHistory] = useState(false);
+  const [confirmClearHistory, setConfirmClearHistory] = useState(false);
 
   const [sortTaskOptions, setSortTaskOptions] = useState<SortTaskOptions>(
     () => {
@@ -47,14 +47,14 @@ export function History() {
     dispatch({ type: TaskActionTypes.RESET_STATE });
   }, [confirmClearHistory, dispatch]);
   useEffect(() => {
-  document.title = 'Histórico - Chronos Pomodoro'
-})
+    document.title = 'Histórico - Kaíros Pomodoro';
+  });
 
   useEffect(() => {
     return () => {
       showMessage.dismiss();
-    }
-  }, [])
+    };
+  }, []);
 
   function handleSortTask({ field }: Pick<SortTaskOptions, 'field'>) {
     const newDirection = sortTaskOptions.direction === 'desc' ? 'asc' : 'desc';
@@ -71,7 +71,7 @@ export function History() {
   }
 
   function handleResetHistory() {
-   showMessage.dismiss()
+    showMessage.dismiss();
     showMessage.confirm('Tem certeza?', confirmation => {
       setConfirmClearHistory(confirmation);
     });
@@ -156,5 +156,3 @@ export function History() {
     </MainTemplate>
   );
 }
-
-

@@ -6,8 +6,8 @@ import { MainTemplate } from '../../templates/MainTemplate';
 
 export function Home() {
   useEffect(() => {
-    document.title = 'Chronos Pomodoro'
-  })
+    document.title = 'Kaíros Pomodoro';
+  });
   return (
     <MainTemplate>
       <Container>

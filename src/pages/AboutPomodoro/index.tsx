@@ -6,9 +6,9 @@ import { RouterLink } from '../../components/RouterLink';
 import { MainTemplate } from '../../templates/MainTemplate';
 
 export function AboutPomodoro() {
-useEffect(() => {
-  document.title = 'Entenda a Técnica Pomodoro - Chronos Pomodoro'
-})
+  useEffect(() => {
+    document.title = 'Entenda a Técnica Pomodoro - Kaíros Pomodoro';
+  });
 
   return (
     <MainTemplate>
@@ -44,7 +44,7 @@ useEffect(() => {
           </ul>
 
           <h2>
-            Mas no <strong>Chronos Pomodoro</strong> tem um diferencial 🚀
+            Mas no <strong>Kaíros Pomodoro</strong> tem um diferencial 🚀
           </h2>
 
           <p>
@@ -107,7 +107,7 @@ useEffect(() => {
             evolução ao longo do tempo.
           </p>
 
-          <h2>Por que usar o Chronos Pomodoro?</h2>
+          <h2>Por que usar o Kaíros Pomodoro?</h2>
           <ul>
             <li>✅ Organize seu foco com clareza.</li>
             <li>✅ Trabalhe e descanse na medida certa.</li>
