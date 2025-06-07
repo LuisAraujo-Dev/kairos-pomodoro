@@ -6,6 +6,10 @@ import { Heading } from '../../components/Heading';
 import { MainTemplate } from '../../templates/MainTemplate';
 
 export function Settings() {
+ function handleSaveSettings(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault(); 
+ } 
+
   return (
     <MainTemplate>
       <Container>
@@ -19,7 +23,7 @@ export function Settings() {
       </Container>
 
       <Container>
-        <form action="" className='form'>
+        <form onSubmit={handleSaveSettings} action="" className='form'>
           <div className='formRow'>
             <DefaultInput id='workTiime' labelText='Foco'/>
           </div>
