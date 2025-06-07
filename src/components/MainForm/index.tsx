@@ -58,13 +58,14 @@ export function MainForm() {
     <form onSubmit={handleCreateNewTask} className='form' action=''>
       <div className='formRow'>
         <DefaultInput
-          labelText='task'
+          labelText='Tarefa'
           id='meuInput'
           type='text'
           placeholder='Digite algo'
           ref={taskNameInput}
           disabled={!!state.activeTask}
           defaultValue={lastTaskName}
+          autoComplete="off"
         />
       </div>
 
