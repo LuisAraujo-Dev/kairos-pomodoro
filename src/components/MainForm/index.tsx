@@ -4,7 +4,7 @@ import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
 import { useRef } from 'react';
 import { TaskModel } from '../../models/TaskModel';
-import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
+import { useTaskContext } from '../../contexts/TaskContext/TaskContextUse';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
@@ -65,7 +65,7 @@ export function MainForm() {
           ref={taskNameInput}
           disabled={!!state.activeTask}
           defaultValue={lastTaskName}
-          autoComplete="off"
+          autoComplete='off'
         />
       </div>
 
